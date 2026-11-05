@@ -57,6 +57,7 @@
     </Compile>
     <Compile Include="ICalculoPrestamo.cs" />
     <Compile Include="Pago.cs" />
+    <Compile Include="PagoService.cs" />
     <Compile Include="Prestamo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
