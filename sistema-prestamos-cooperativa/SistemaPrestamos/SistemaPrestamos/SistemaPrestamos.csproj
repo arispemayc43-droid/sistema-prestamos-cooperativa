@@ -62,6 +62,12 @@
     <Compile Include="FrmConsultaPrestamos.Designer.cs">
       <DependentUpon>FrmConsultaPrestamos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCronogramaPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCronogramaPagos.Designer.cs">
+      <DependentUpon>FrmCronogramaPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPagos.cs">
       <SubType>Form</SubType>
     </Compile>
