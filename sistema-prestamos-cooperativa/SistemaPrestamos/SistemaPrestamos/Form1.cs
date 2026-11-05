@@ -32,5 +32,15 @@ namespace SistemaPrestamos
         {
 
         }
+
+        private void tlpMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgvSolicitudes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

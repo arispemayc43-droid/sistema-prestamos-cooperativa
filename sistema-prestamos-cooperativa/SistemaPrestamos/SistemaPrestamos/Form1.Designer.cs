@@ -17,9 +17,9 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.grpSocio = new System.Windows.Forms.GroupBox();
@@ -27,10 +27,10 @@
             this.lblCodigoSocio = new System.Windows.Forms.Label();
             this.txtCodigoSocio = new System.Windows.Forms.TextBox();
             this.btnBuscarSocio = new System.Windows.Forms.Button();
-            this.lblNombreSocio = new System.Windows.Forms.Label();
             this.txtNombreSocio = new System.Windows.Forms.TextBox();
             this.lblIngresoSocio = new System.Windows.Forms.Label();
             this.txtIngresoSocio = new System.Windows.Forms.TextBox();
+            this.lblNombreSocio = new System.Windows.Forms.Label();
             this.grpPrestamo = new System.Windows.Forms.GroupBox();
             this.tlpPrestamo = new System.Windows.Forms.TableLayoutPanel();
             this.lblTipo = new System.Windows.Forms.Label();
@@ -100,6 +100,7 @@
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMain.Size = new System.Drawing.Size(804, 541);
             this.tlpMain.TabIndex = 1;
+            this.tlpMain.Paint += new System.Windows.Forms.PaintEventHandler(this.tlpMain_Paint);
             // 
             // grpSocio
             // 
@@ -176,17 +177,6 @@
             this.btnBuscarSocio.UseVisualStyleBackColor = false;
             this.btnBuscarSocio.Click += new System.EventHandler(this.btnBuscarSocio_Click);
             // 
-            // lblNombreSocio
-            // 
-            this.lblNombreSocio.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblNombreSocio.AutoSize = true;
-            this.lblNombreSocio.Location = new System.Drawing.Point(315, 15);
-            this.lblNombreSocio.Margin = new System.Windows.Forms.Padding(15, 0, 3, 0);
-            this.lblNombreSocio.Name = "lblNombreSocio";
-            this.lblNombreSocio.Size = new System.Drawing.Size(62, 19);
-            this.lblNombreSocio.TabIndex = 3;
-            this.lblNombreSocio.Text = "Nombre:";
-            // 
             // txtNombreSocio
             // 
             this.txtNombreSocio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -217,6 +207,17 @@
             this.txtIngresoSocio.Size = new System.Drawing.Size(124, 25);
             this.txtIngresoSocio.TabIndex = 6;
             this.txtIngresoSocio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblNombreSocio
+            // 
+            this.lblNombreSocio.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblNombreSocio.AutoSize = true;
+            this.lblNombreSocio.Location = new System.Drawing.Point(315, 15);
+            this.lblNombreSocio.Margin = new System.Windows.Forms.Padding(15, 0, 3, 0);
+            this.lblNombreSocio.Name = "lblNombreSocio";
+            this.lblNombreSocio.Size = new System.Drawing.Size(62, 19);
+            this.lblNombreSocio.TabIndex = 3;
+            this.lblNombreSocio.Text = "Nombre:";
             // 
             // grpPrestamo
             // 
@@ -286,7 +287,7 @@
             this.cboTipoPrestamo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cboTipoPrestamo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipoPrestamo.FormattingEnabled = true;
-            this.cboTipoPrestamo.Location = new System.Drawing.Point(111, 12);
+            this.cboTipoPrestamo.Location = new System.Drawing.Point(111, 10);
             this.cboTipoPrestamo.Name = "cboTipoPrestamo";
             this.cboTipoPrestamo.Size = new System.Drawing.Size(111, 25);
             this.cboTipoPrestamo.TabIndex = 1;
@@ -452,7 +453,7 @@
             this.tlpPrestamo.SetColumnSpan(this.cboGarantia, 3);
             this.cboGarantia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboGarantia.FormattingEnabled = true;
-            this.cboGarantia.Location = new System.Drawing.Point(460, 104);
+            this.cboGarantia.Location = new System.Drawing.Point(460, 102);
             this.cboGarantia.Name = "cboGarantia";
             this.cboGarantia.Size = new System.Drawing.Size(281, 25);
             this.cboGarantia.TabIndex = 15;
@@ -500,7 +501,7 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.Location = new System.Drawing.Point(3, 6);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(105, 36);
+            this.btnNuevo.Size = new System.Drawing.Size(91, 36);
             this.btnNuevo.TabIndex = 0;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
@@ -561,27 +562,27 @@
             // 
             this.dgvSolicitudes.AllowUserToAddRows = false;
             this.dgvSolicitudes.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.dgvSolicitudes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.dgvSolicitudes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSolicitudes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSolicitudes.BackgroundColor = System.Drawing.Color.White;
             this.dgvSolicitudes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(58)))), ((int)(((byte)(95)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(58)))), ((int)(((byte)(95)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvSolicitudes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(58)))), ((int)(((byte)(95)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(58)))), ((int)(((byte)(95)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvSolicitudes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvSolicitudes.ColumnHeadersHeight = 36;
             this.dgvSolicitudes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSolicitudes.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSolicitudes.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvSolicitudes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSolicitudes.EnableHeadersVisualStyles = false;
             this.dgvSolicitudes.Location = new System.Drawing.Point(23, 363);
@@ -592,6 +593,7 @@
             this.dgvSolicitudes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSolicitudes.Size = new System.Drawing.Size(758, 155);
             this.dgvSolicitudes.TabIndex = 3;
+            this.dgvSolicitudes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSolicitudes_CellContentClick);
             // 
             // Form1
             // 
