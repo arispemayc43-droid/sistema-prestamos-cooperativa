@@ -17,22 +17,18 @@ namespace SistemaPrestamos
             prestamoService = new PrestamoService();
             listaPrestamos = new List<Prestamo>();
 
-            // Eventos de los botones
+            
             btnBuscar.Click += btnBuscar_Click;
             btnLimpiar.Click += btnLimpiar_Click;
             btnSalir.Click += btnSalir_Click;
 
-            // Evento de carga
             this.Load += FrmConsultaPrestamos_Load;
         }
-
-        // CARGAR FORMULARIO
         private void FrmConsultaPrestamos_Load(object sender, EventArgs e)
         {
             CargarPrestamos();
         }
 
-        // CARGAR LISTA DE PRESTAMOS
         private void CargarPrestamos()
         {
             try
@@ -51,7 +47,6 @@ namespace SistemaPrestamos
             }
         }
 
-        // MOSTRAR PRESTAMOS EN LA TABLA
         private void MostrarPrestamos(List<Prestamo> prestamos)
         {
             dgvPrestamos.Rows.Clear();
@@ -69,8 +64,6 @@ namespace SistemaPrestamos
                 );
             }
         }
-
-        // BOTON BUSCAR
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string buscar = txtBuscarSocio.Text.Trim().ToLower();
@@ -113,7 +106,6 @@ namespace SistemaPrestamos
             }
         }
 
-        // BOTON LIMPIAR
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtBuscarSocio.Clear();
@@ -124,7 +116,6 @@ namespace SistemaPrestamos
             MostrarPrestamos(listaPrestamos);
         }
 
-        // BOTON SALIR
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -30,14 +30,12 @@ namespace SistemaPrestamos
             this.Load += FrmPagos_Load;
         }
 
-        // CARGAR FORMULARIO
         private void FrmPagos_Load(object sender, EventArgs e)
         {
             dtpFechaPago.Value = DateTime.Today;
             CargarPrestamos();
         }
 
-        // CARGAR PRESTAMOS
         private void CargarPrestamos()
         {
             try
@@ -69,8 +67,6 @@ namespace SistemaPrestamos
                     MessageBoxIcon.Error);
             }
         }
-
-        // MOSTRAR IDENTIFICACION DEL PRESTAMO
         private void cmbPrestamo_Format(object sender, ListControlConvertEventArgs e)
         {
             Prestamo prestamo = e.ListItem as Prestamo;
@@ -82,7 +78,6 @@ namespace SistemaPrestamos
             }
         }
 
-        // ACTUALIZAR SALDO
         private void cmbPrestamo_SelectedIndexChanged(object sender, EventArgs e)
         {
             ActualizarSaldo();
@@ -103,7 +98,6 @@ namespace SistemaPrestamos
             }
         }
 
-        // BOTON REGISTRAR PAGO
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             Prestamo prestamo = cmbPrestamo.SelectedItem as Prestamo;
@@ -185,7 +179,6 @@ namespace SistemaPrestamos
             }
         }
 
-        // BOTON LIMPIAR
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
@@ -210,7 +203,6 @@ namespace SistemaPrestamos
             txtMonto.Focus();
         }
 
-        // BOTON CANCELAR
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();

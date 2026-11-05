@@ -11,7 +11,6 @@ namespace SistemaPrestamos
         private Prestamo prestamoSeleccionado;
         private List<Cuota> listaCuotas;
 
-        // CONSTRUCTOR PARA EL DISEÑADOR
         public FrmCronogramaPagos()
         {
             InitializeComponent();
@@ -25,14 +24,12 @@ namespace SistemaPrestamos
             this.Load += FrmCronogramaPagos_Load;
         }
 
-        // CONSTRUCTOR PARA RECIBIR UN PRESTAMO
         public FrmCronogramaPagos(Prestamo prestamo)
             : this()
         {
             prestamoSeleccionado = prestamo;
         }
 
-        // CARGAR FORMULARIO
         private void FrmCronogramaPagos_Load(object sender, EventArgs e)
         {
             if (prestamoSeleccionado != null)
@@ -50,7 +47,6 @@ namespace SistemaPrestamos
             }
         }
 
-        // MOSTRAR INFORMACION DEL PRESTAMO
         private void MostrarInformacionPrestamo()
         {
             lblValorPrestamo.Text =
@@ -66,7 +62,6 @@ namespace SistemaPrestamos
                 prestamoSeleccionado.PlazoMeses + " meses";
         }
 
-        // CARGAR CRONOGRAMA
         private void CargarCronograma()
         {
             try
@@ -77,7 +72,6 @@ namespace SistemaPrestamos
                 listaCuotas = cuotaService.ListarCuotas(
                     prestamoSeleccionado.IdPrestamo);
 
-                // GENERAR CRONOGRAMA SI TODAVIA NO EXISTE
                 if (listaCuotas.Count == 0)
                 {
                     cuotaService.GenerarCronograma(
@@ -100,7 +94,6 @@ namespace SistemaPrestamos
             }
         }
 
-        // MOSTRAR CUOTAS EN LA TABLA
         private void MostrarCuotas()
         {
             dgvCronograma.Rows.Clear();
@@ -119,7 +112,6 @@ namespace SistemaPrestamos
             }
         }
 
-        // ACTUALIZAR RESUMEN
         private void ActualizarResumen()
         {
             int total = listaCuotas.Count;
@@ -148,7 +140,6 @@ namespace SistemaPrestamos
                 "PENDIENTES: " + pendientes;
         }
 
-        // BOTON ACTUALIZAR
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             CargarCronograma();
@@ -160,7 +151,6 @@ namespace SistemaPrestamos
                 MessageBoxIcon.Information);
         }
 
-        // BOTON VOLVER
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
