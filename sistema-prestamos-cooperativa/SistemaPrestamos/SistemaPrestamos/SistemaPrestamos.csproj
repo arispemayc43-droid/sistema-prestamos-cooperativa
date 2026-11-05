@@ -56,12 +56,21 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConsultaPrestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultaPrestamos.Designer.cs">
+      <DependentUpon>FrmConsultaPrestamos.cs</DependentUpon>
+    </Compile>
     <Compile Include="ICalculoPrestamo.cs" />
     <Compile Include="Pago.cs" />
     <Compile Include="PagoService.cs" />
     <Compile Include="Prestamo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmConsultaPrestamos.resx">
+      <DependentUpon>FrmConsultaPrestamos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
