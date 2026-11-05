@@ -46,21 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculadoraPrestamo.cs" />
     <Compile Include="Cuota.cs" />
-    <Compile Include="Estrategias.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="CuotaService.cs" />
+    <Compile Include="EstrategiaPrestamo.cs" />
+    <Compile Include="FrmConsultaPrestamos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmConsultaPrestamos.Designer.cs">
+      <DependentUpon>FrmConsultaPrestamos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCronogramaPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCronogramaPagos.Designer.cs">
+      <DependentUpon>FrmCronogramaPagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPagos.Designer.cs">
+      <DependentUpon>FrmPagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ICalculoPrestamo.cs" />
     <Compile Include="Pago.cs" />
+    <Compile Include="PagoService.cs" />
     <Compile Include="Prestamo.cs" />
+    <Compile Include="PrestamoService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
