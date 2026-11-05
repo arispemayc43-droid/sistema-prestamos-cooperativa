@@ -27,5 +27,10 @@ namespace SistemaPrestamos
         {
 
         }
+
+        private void txtNombreSocio_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
