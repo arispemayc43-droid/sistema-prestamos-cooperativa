@@ -7,20 +7,22 @@ namespace SistemaPrestamos
 {
     public partial class FrmConsultaPrestamos : Form
     {
-        private Prestamo prestamo;
+        private PrestamoService prestamoService;
         private List<Prestamo> listaPrestamos;
 
         public FrmConsultaPrestamos()
         {
             InitializeComponent();
 
-            prestamo = new Prestamo();
+            prestamoService = new PrestamoService();
             listaPrestamos = new List<Prestamo>();
 
+            // Eventos de los botones
             btnBuscar.Click += btnBuscar_Click;
             btnLimpiar.Click += btnLimpiar_Click;
             btnSalir.Click += btnSalir_Click;
 
+            // Evento de carga
             this.Load += FrmConsultaPrestamos_Load;
         }
 
@@ -31,12 +33,11 @@ namespace SistemaPrestamos
         }
 
         // CARGAR LISTA DE PRESTAMOS
-
         private void CargarPrestamos()
         {
             try
             {
-                listaPrestamos = prestamo.ListarPrestamos();
+                listaPrestamos = prestamoService.ListarPrestamos();
 
                 MostrarPrestamos(listaPrestamos);
             }
@@ -82,8 +83,9 @@ namespace SistemaPrestamos
             foreach (Prestamo prestamo in listaPrestamos)
             {
                 bool coincideSocio =
-                    prestamo.NombreSocio != null &&
-                    prestamo.NombreSocio.ToLower().Contains(buscar);
+                    string.IsNullOrEmpty(buscar) ||
+                    (prestamo.NombreSocio != null &&
+                    prestamo.NombreSocio.ToLower().Contains(buscar));
 
                 bool coincideTipo =
                     tipo == "Todos" ||
