@@ -17,6 +17,9 @@ namespace SistemaPrestamosCooperativa
             InitializeComponent();
             ConstruirInterfaz();
         }
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+        }
 
         private void ConstruirInterfaz()
         {
@@ -72,7 +75,7 @@ namespace SistemaPrestamosCooperativa
 
             panelMarca.Controls.Add(lblLogo);
 
-         
+
             // NOMBRE DE LA COOPERATIVA
             Label lblMarca = new Label();
             lblMarca.Text = "COOPERATIVA\nDE AHORRO Y\nCRÉDITO";
@@ -270,7 +273,10 @@ namespace SistemaPrestamosCooperativa
         // VALIDACION INICIAL DE CAMPOS
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
+            string usuario = txtUsuario.Text.Trim();
+            string contrasena = txtContrasena.Text;
+
+            if (string.IsNullOrWhiteSpace(usuario))
             {
                 MessageBox.Show(
                     "Ingresa tu nombre de usuario.",
@@ -282,7 +288,7 @@ namespace SistemaPrestamosCooperativa
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtContrasena.Text))
+            if (string.IsNullOrWhiteSpace(contrasena))
             {
                 MessageBox.Show(
                     "Ingresa tu contraseña.",
@@ -294,11 +300,29 @@ namespace SistemaPrestamosCooperativa
                 return;
             }
 
-            MessageBox.Show(
-                "La interfaz está lista. En el siguiente paso conectaremos la validación de credenciales.",
-                "Autenticación pendiente",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            if (usuario == "admin" && contrasena == "Coop2026")
+            {
+                FrmPrincipal principal = new FrmPrincipal();
+
+                principal.FormClosed += (s, args) =>
+                {
+                    this.Show();
+                };
+
+                this.Hide();
+                principal.Show();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "El usuario o la contraseña son incorrectos.",
+                    "Acceso denegado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                txtContrasena.Clear();
+                txtUsuario.Focus();
+            }
         }
     }
 }
