@@ -16,5 +16,16 @@ namespace SistemaPrestamos
         {
             InitializeComponent();
         }
+        private void FrmSolicitudPrestamo_Load(object sender, EventArgs e) { }
+        private void btnBuscarSocio_Click(object sender, EventArgs e) { }
+        private void cboTipoPrestamo_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void btnNuevo_Click(object sender, EventArgs e) { }
+        private void btnGuardar_Click(object sender, EventArgs e) { }
+        private void btnCancelar_Click(object sender, EventArgs e) { }
+        private void btnDocumentos_Click(object sender, EventArgs e) { }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
