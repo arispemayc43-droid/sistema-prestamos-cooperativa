@@ -50,6 +50,12 @@
     <Compile Include="Cuota.cs" />
     <Compile Include="CuotaService.cs" />
     <Compile Include="EstrategiaPrestamo.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConsultaPrestamos.cs">
       <SubType>Form</SubType>
     </Compile>

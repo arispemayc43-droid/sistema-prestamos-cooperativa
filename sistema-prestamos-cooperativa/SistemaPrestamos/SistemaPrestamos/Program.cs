@@ -16,7 +16,7 @@ namespace SistemaPrestamos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmConsultaPrestamos());
+            Application.Run(new Form1());
         }
     }
 }
